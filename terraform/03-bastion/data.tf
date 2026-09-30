@@ -1,0 +1,29 @@
+data "aws_ami" "ami_id" {
+    owners = [ "973714476881" ]
+    most_recent = true
+
+    filter {
+        name = "architecture"
+        values = ["x86_64"]
+    }
+    filter {
+        name = "virtualization-type"
+        values = ["hvm"]
+    }
+    filter {
+        name = "root-device-name"
+        values = ["/dev/sda1"]
+    }
+    filter {
+    name   = "name"
+    values = ["Redhat-9-DevOps-Practice*"]
+  }
+}
+
+data "aws_ssm_parameter" "bastion_sg_id" {
+    name = "${local.common_name}_bastion_sg_id"
+}
+
+data "aws_ssm_parameter" "private_subnet_ids" {
+    name = "${local.common_name}_private_subnet_ids"
+}
