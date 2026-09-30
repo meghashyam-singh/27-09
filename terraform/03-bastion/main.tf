@@ -7,7 +7,12 @@ resource "aws_instance" "bastion" {
     tags = {
         Name = "${local.common_name}_bastion"
     }
+
+    lifecycle {
+      create_before_destroy = true
+    }
 }
+
 
 resource "aws_iam_instance_profile" "bastion_admin" {
     name = "bastion_admin"
