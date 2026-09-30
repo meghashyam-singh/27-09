@@ -17,4 +17,8 @@ resource "aws_security_group" "roboshop_sg" {
         Name = "${local.common_name}_${var.sg_names[count.index]}_sg"
     }
 
+    lifecycle {
+      create_before_destroy = true
+    }
+
 }
