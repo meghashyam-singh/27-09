@@ -2,5 +2,5 @@ locals {
     common_name = "${var.project}_${var.environment}"
     ami_id = data.aws_ami.ami_id.id
     bastion_sg_id = data.aws_ssm_parameter.bastion_sg_id.value
-    private_subnet_id = split(",", data.aws_ssm_parameter.private_subnet_ids.value)[0]
+    public_subnet_id = split(",", data.aws_ssm_parameter.public_subnet_ids.value)[0]
 }

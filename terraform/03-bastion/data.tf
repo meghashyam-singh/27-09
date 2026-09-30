@@ -24,6 +24,6 @@ data "aws_ssm_parameter" "bastion_sg_id" {
     name = "${local.common_name}_bastion_sg_id"
 }
 
-data "aws_ssm_parameter" "private_subnet_ids" {
-    name = "${local.common_name}_private_subnet_ids"
+data "aws_ssm_parameter" "public_subnet_ids" {
+    name = "${local.common_name}_public_subnet_ids"
 }
